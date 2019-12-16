@@ -15,3 +15,4 @@ app.listen(3000, () => {
 // /register --> POST = new user into database
 // /profile/: userId --> GET = user
 // /image -- > PUT --> user
+// ????
