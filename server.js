@@ -13,7 +13,7 @@ const db = knex({
   client: "pg",
   connection: {
     host: "127.0.0.1",
-    user: "Postgres",
+    user: "postgres",
     password: "test",
     database: "smart-brain"
   }
@@ -22,6 +22,16 @@ const db = knex({
 const app = express();
 
 app.use(cors());
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
